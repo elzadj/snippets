@@ -1,0 +1,62 @@
+<snippet>
+    <content><![CDATA[<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="utf-8">
+        <meta name="description" content="$1">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+		<meta name="keywords" content="TODO">
+        <title>${2:Untitled}</title>
+        <link rel="stylesheet" href="css/style.css">
+        <link rel="stylesheet" href="https://github.com/necolas/normalize.css/blob/master/normalize.css">
+        <link rel="author" href="humans.txt">
+    </head>
+    <body>
+	<header>
+		<nav>
+			<ul>
+				<li>Menu  1</li>
+				<li>Menu  2</li>
+				<li>Menu  3</li>
+				<li>Menu  4</li>
+			</ul>
+		</nav>
+	</header>
+
+	<section>
+	
+		<article>
+			<header>
+				<h2>Article title</h2>
+			</header>
+			<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
+		</article>
+		
+		<article>
+			<header>
+				<h2>Article title</h2>
+			</header>
+			<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
+		</article>
+		
+	</section>
+
+	<aside>
+		<h2>About section</h2>
+			<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Cum, repudiandae!</p>
+	</aside>
+
+	<footer>
+		<p>&copy; 2013 elzadj</p>
+	</footer>
+        $3
+	<script src="js/main.js"></script>
+	<!--[if IE]>
+    <script src="http://html5shiv.googlecode.com/svn/trunk/html5.js"></script>
+    <![endif]-->
+    </body>
+</html>]]></content>
+    <tabTrigger>doctype</tabTrigger>
+    <description>HTML - HTML foundation</description>
+    <scope>text.html</scope>
+</snippet>
