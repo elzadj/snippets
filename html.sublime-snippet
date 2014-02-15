@@ -4,13 +4,13 @@
     <head>
         <meta charset="utf-8">
         <meta name="description" content="$1">
-        <meta name="viewport" content="width=device-width, initial-scale=1">
-		<meta name="keywords" content="TODO">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<meta name="keywords" content="TODO">
         <title>${2:Untitled}</title>
         <!--[if IE]><link rel="shortcut icon" href="images/favicon.ico"><![endif]-->
         <link rel="icon" type="image/png" href="images/favicon.png">
         <link rel="stylesheet" href="css/style.css">
-        <link rel="stylesheet" href="https://github.com/necolas/normalize.css/blob/master/normalize.css">
+        <link rel="stylesheet" href="css/normalize.css">
         <link rel="author" href="humans.txt">
     </head>
     <body>
