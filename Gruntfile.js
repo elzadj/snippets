@@ -81,23 +81,23 @@ imagemin: {
     watch: {
     scripts: {
         files: ['js/*.js'],
-        tasks: ['concat', 'uglify'],
+        tasks: ['newer:concat', 'newer:uglify'],
         },
     sccstyles: {
         files: ['scss/*.scss'],
-        tasks: ['sass'],
+        tasks: ['newer:sass'],
     },
     ccstyles: {
         files: ['css/*.css'],
-        tasks: ['cssmin'],
+        tasks: ['newer:cssmin'],
     },
     htmls: {
         files: ['/*.html'],
-        tasks: ['htmlmin'],
+        tasks: ['newer:htmlmin'],
         },
     images: {
         files: ['images/*.{png,jpg}'],
-        tasks: ['imagemin'],
+        tasks: ['newer:imagemin'],
     },
   },
 });
@@ -106,6 +106,6 @@ imagemin: {
   require('load-grunt-tasks')(grunt);
 
   
-  grunt.registerTask('default', ['sass', 'concat', 'uglify', 'htmlmin', 'cssmin']);
+  grunt.registerTask('default', ['newer:sass', 'newer:concat', 'newer:uglify', 'newer:htmlmin', 'newer:cssmin', 'newer:imagemin', 'watch']);
 
 }
