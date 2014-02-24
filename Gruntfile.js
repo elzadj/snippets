@@ -7,7 +7,7 @@ module.exports = function(grunt) {
       files: [{
         expand: true,
         cwd: 'scss',
-        src: ['*.scss'],
+        src: ['*.scss', 'style.scss'],
         dest: 'css/',
         ext: '.css'
       }]
@@ -37,17 +37,20 @@ module.exports = function(grunt) {
             removeRedundantAttributes: true,
             collapseBooleanAttributes: true
         },
-        files: {
-            // Destination : Source
-            './build/index.html': './index.html'
-             }
+        files: [{
+        expand: true,
+        cwd: '/',
+        src: ['*.html'],
+        dest: 'build/',
+        ext: '.html'
+      }]
         }
    },
 
 cssmin: {
   combine: {
     files: {
-      'build/css/all.css': [ 'css/*.css']
+      'build/css/all.css': [ 'css/*.css', 'css/style.css']
     }
   },
 
@@ -75,7 +78,29 @@ imagemin: {
         }]
       }
     },
-  });
+    watch: {
+    scripts: {
+        files: ['js/*.js'],
+        tasks: ['concat', 'uglify'],
+        },
+    sccstyles: {
+        files: ['scss/*.scss'],
+        tasks: ['sass'],
+    },
+    ccstyles: {
+        files: ['css/*.css'],
+        tasks: ['cssmin'],
+    },
+    htmls: {
+        files: ['./*html'],
+        tasks: ['htmlmin'],
+        },
+    images: {
+        files: ['images/*.{png,jpg,gif}'],
+        tasks: ['imagemin'],
+    },
+  },
+});
 
   grunt.loadNpmTasks('grunt-contrib-sass');
   grunt.loadNpmTasks('grunt-contrib-concat');
@@ -83,7 +108,8 @@ imagemin: {
   grunt.loadNpmTasks('grunt-contrib-imagemin');
   grunt.loadNpmTasks('grunt-contrib-htmlmin');
   grunt.loadNpmTasks('grunt-contrib-cssmin');
+  grunt.loadNpmTasks('grunt-contrib-watch');
 
-  grunt.registerTask('default', ['sass', 'concat', 'uglify', 'htmlmin', 'cssmin', 'imagemin']);
+  grunt.registerTask('default', ['sass', 'concat', 'uglify', 'htmlmin', 'cssmin', 'imagemin', 'watch']);
 
 }
