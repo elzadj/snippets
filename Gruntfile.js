@@ -39,7 +39,7 @@ module.exports = function(grunt) {
         },
         files: [{
         expand: true,
-        cwd: '/',
+        cwd: '',
         src: ['*.html'],
         dest: 'build/',
         ext: '.html'
@@ -73,7 +73,7 @@ imagemin: {
         files: [{
           expand: true,
           cwd: 'images/',
-          src: ['**/*.{png,jpg,gif}'],
+          src: ['*.{png,jpg}'],
           dest: 'build/images/'
         }]
       }
@@ -92,24 +92,20 @@ imagemin: {
         tasks: ['cssmin'],
     },
     htmls: {
-        files: ['./*html'],
+        files: ['/*.html'],
         tasks: ['htmlmin'],
         },
     images: {
-        files: ['images/*.{png,jpg,gif}'],
+        files: ['images/*.{png,jpg}'],
         tasks: ['imagemin'],
     },
   },
 });
 
-  grunt.loadNpmTasks('grunt-contrib-sass');
-  grunt.loadNpmTasks('grunt-contrib-concat');
-  grunt.loadNpmTasks('grunt-contrib-uglify');
-  grunt.loadNpmTasks('grunt-contrib-imagemin');
-  grunt.loadNpmTasks('grunt-contrib-htmlmin');
-  grunt.loadNpmTasks('grunt-contrib-cssmin');
-  grunt.loadNpmTasks('grunt-contrib-watch');
+  require('time-grunt')(grunt);
+  require('load-grunt-tasks')(grunt);
 
-  grunt.registerTask('default', ['sass', 'concat', 'uglify', 'htmlmin', 'cssmin', 'imagemin', 'watch']);
+  
+  grunt.registerTask('default', ['sass', 'concat', 'uglify', 'htmlmin', 'cssmin']);
 
 }
