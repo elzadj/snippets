@@ -78,10 +78,20 @@ imagemin: {
         }]
       }
     },
+
+
+  jshint: {
+    all: ['Gruntfile.js', 'js/*.js']
+  },
+
+  csslint: {
+    src: ['css/*.css', '!css/normalize.css']
+  },
+
     watch: {
     scripts: {
         files: ['js/*.js'],
-        tasks: ['newer:concat', 'newer:uglify'],
+        tasks: ['newer:jshint','newer:concat', 'newer:uglify'],
         },
     sccstyles: {
         files: ['scss/*.scss'],
@@ -89,7 +99,7 @@ imagemin: {
     },
     ccstyles: {
         files: ['css/*.css'],
-        tasks: ['newer:cssmin'],
+        tasks: [ 'newer:csslint', 'newer:cssmin'],
     },
     htmls: {
         files: ['/*.html'],
@@ -106,6 +116,6 @@ imagemin: {
   require('load-grunt-tasks')(grunt);
 
   
-  grunt.registerTask('default', ['newer:sass', 'newer:concat', 'newer:uglify', 'newer:htmlmin', 'newer:cssmin', 'newer:imagemin', 'watch']);
+  grunt.registerTask('default', ['newer:sass', 'newer:jshint', 'newer:concat', 'newer:uglify', 'newer:htmlmin', 'newer:csslint', 'newer:cssmin', 'newer:imagemin', 'watch']);
 
-}
+};
