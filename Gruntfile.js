@@ -88,6 +88,13 @@ imagemin: {
     src: ['css/*.css', '!css/normalize.css']
   },
 
+  lint5: {
+    dirPath: "/",
+    templates: [
+        "index.html",
+      ],
+  },
+
     watch: {
     scripts: {
         files: ['js/*.js'],
@@ -99,11 +106,11 @@ imagemin: {
     },
     ccstyles: {
         files: ['css/*.css'],
-        tasks: [ 'newer:csslint', 'newer:cssmin'],
+        tasks: ['newer:csslint', 'newer:cssmin'],
     },
     htmls: {
-        files: ['/*.html'],
-        tasks: ['newer:htmlmin'],
+        files: ['*.html'],
+        tasks: ['newer:lint5', 'newer:htmlmin'],
         },
     images: {
         files: ['images/*.{png,jpg}'],
@@ -115,7 +122,6 @@ imagemin: {
   require('time-grunt')(grunt);
   require('load-grunt-tasks')(grunt);
 
-  
-  grunt.registerTask('default', ['newer:sass', 'newer:jshint', 'newer:concat', 'newer:uglify', 'newer:htmlmin', 'newer:csslint', 'newer:cssmin', 'newer:imagemin', 'watch']);
+ grunt.registerTask('default', ['newer:sass', 'newer:jshint', 'newer:concat', 'newer:uglify', 'newer:csslint', 'newer:cssmin', 'newer:lint5', 'newer:htmlmin', 'newer:imagemin', 'watch']);
 
 };
